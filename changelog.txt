@@ -11,8 +11,11 @@ $ -> Language fix or change
 - -> Removed
 ! -> Note
 
-- - - - - 1.2.5 - [22-04-2015] - - - - - - - - - - - - - - - - - - - -
+- - - - - 3.2.5 - [22-04-2015] - - - - - - - - - - - - - - - - - - - -
 ^ Auswahl von Ligen oder Mannschaftsturnieren ohne IDs wieder möglich
+
+- - - - - 3.2.4 - [18-04-2015] - - - - - - - - - - - - - - - - - - - -
+! Vermeidung gleicher Versionsnummern in verschiedenen CLM Versionen
 
 - - - - - 1.2.4 - [04-04-2015] - - - - - - - - - - - - - - - - - - - -
 ^ itemid nun überschreibbar
