@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="1.7.0" client="site" method="upgrade">
 	<name>CLM Modul</name>
-	<creationDate>22.04.2015</creationDate>
+	<creationDate>29.11.2015</creationDate>
 	<author>CLM Project</author>
 	<copyright>(C) Copyright 2008-2015 by CLM Project</copyright>
 	<license>GNU/GPL</license>
 	<authorEmail>fishpoke@fishpoke.de</authorEmail>
 	<authorUrl>www.chessleaguemanager.de</authorUrl>
-	<version>3.2.5</version>
+	<version>3.2.6</version>
 	<description>MOD_CLM_XML_DESCRIPTION</description>
 
 	<files>
@@ -24,9 +24,9 @@
 		<fields name="params">
 			<fieldset name="basic" label="JACTION_ADMIN">
 				<field name="mt_type" type="list" default="0" label="MOD_CLM_PARAM_TYPE_LABEL" description="MOD_CLM_PARAM_TYPE_DESC">
-					<option value="0">Ligen</option>
-					<option value="1">Mannschaftsturniere</option>
-					<option value="2">Ligen und Mannschaftsturniere</option>
+					<option value="0">MOD_CLM_PARAM_TYPE_0</option>
+					<option value="1">MOD_CLM_PARAM_TYPE_1</option>
+					<option value="2">MOD_CLM_PARAM_TYPE_2</option>
 				</field>
 				
 				<field name="ids" type="text" default="" label="MOD_CLM_PARAM_IDS_LABEL" description="MOD_CLM_PARAM_IDS_DESC">
@@ -52,7 +52,7 @@
 				
 				<field type="spacer" name="other_links" label="MOD_CLM_SPACER_LINKS_SPECIAL" />
 				
-				<field name="dwzliga" type="radio" default="1" label="MOD_CLM_PARAM_DWZ_LABEL" description="MOD_CLM_PARAM_DWZ_DESC">
+				<field name="dwzliga" type="radio" default="1" label="MOD_CLM_PARAM_RATING_LABEL" description="MOD_CLM_PARAM_RATING_DESC">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>

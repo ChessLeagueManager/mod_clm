@@ -31,8 +31,12 @@ foreach ($link as $link1) {
 		}
 	}
 } } }
-$config	= JComponentHelper::getParams( 'com_clm' );
-$pdf_melde = $config->get('pdf_meldelisten',1);
+//$config	= JComponentHelper::getParams( 'com_clm' );
+//$pdf_melde = $config->get('pdf_meldelisten',1);
+	// Konfigurationsparameter auslesen
+	$config = clm_core::$db->config();
+	$countryversion = $config->countryversion;
+	$pdf_melde = $config->pdf_meldelisten;
 
 if (isset($link[0])) $saison = $link[0]->sid;
 else {
@@ -50,14 +54,14 @@ $url		= JRequest::getVar('url');
 	<?php if ( $par_vereine == 1 ) { ?>
     <li <?php if ($view == 'vereinsliste') { ?> id="current" class="active" <?php } ?>>
         <a href="index.php?option=com_clm&view=vereinsliste&saison=<?php echo $saison; ?><?php if ($itemid <>'') { echo "&Itemid=".$itemid; } ?>" <?php if ($view == 'vereinsliste') { ?> class="active_link" <?php } ?>>
-        <span>Vereine</span></a>
+        <span><?php echo JText::_('MOD_CLM_CLUBS_LABEL'); ?></span></a>
     </li>
     <?php } ?>
             
     <?php if ( $par_termine == 1 ) { ?>
     <li <?php if ($view == 'termine') { ?> id="current" class="active" <?php } ?>>
         <a href="index.php?option=com_clm&amp;view=termine&amp;saison=<?php echo $saison; ?><?php if ($itemid <>'') { echo "&Itemid=".$itemid; } ?>" <?php if ($view == 'termine') { ?> class="active_link" <?php } ?>>
-        <span>Termine</span></a>
+        <span><?php echo JText::_('MOD_CLM_DATES_LABEL'); ?></span></a>
     </li>
     <?php } ?>
 
@@ -84,14 +88,14 @@ if ($par_links AND $liga == $link->id AND $view == $view21 AND !isset($url) ) { 
 		<?php if ( $link->liga_mt == 0 ) { ?>
 		<li class="first_link liga<?php echo $liga; ?>" <?php if ($view == 'aktuell_runde') { ?> id="current" class="active" <?php } ?>>
 		<a href="index.php?option=com_clm&amp;view=aktuell_runde&amp;saison=<?php echo $link->sid; ?>&amp;liga=<?php echo $liga; ?><?php if ($itemid <>'') { echo "&Itemid=".$itemid; } ?><?php if ($typeid <>'') { echo "&typeid=".$typeid; } ?>">
-		<span><?php echo JText::_('ROUND_CURRENT'); ?></span></a>
+		<span><?php echo JText::_('MOD_CLM_CURRENT_LABEL'); ?></span></a>
 		</li>
 		<?php } ?>
 		<?php $typeid = 22; 
 		if ($link->runden_modus == 1 OR $link->runden_modus == 2 OR $link->runden_modus == 3) { ?>
 		<li>
 		<a href="index.php?option=com_clm&amp;view=paarungsliste&amp;saison=<?php echo $link->sid; ?>&amp;liga=<?php echo $liga; ?><?php if ($itemid <>'') { echo "&Itemid=".$itemid; } ?><?php if ($typeid <>'') { echo "&typeid=".$typeid; } ?>">
-		<span><?php echo JText::_('TOURNAMENT_PAIRINGLIST'); ?></span></a>
+		<span><?php echo JText::_('MOD_CLM_PAIRINGLIST_LABEL'); ?></span></a>
 		</li>
 		<?php } ?>
 	<?php for ($y=0; $y < $link->runden; $y++) { ?>
@@ -125,7 +129,7 @@ if ($par_links AND $liga == $link->id AND $view == $view21 AND !isset($url) ) { 
         <?php if ( $par_dwzliga == 1 ) { ?>
 		<li <?php if ($view == 'dwz_liga') { ?> class="active" <?php } ?>>
 		<a href="index.php?option=com_clm&amp;view=dwz_liga&amp;saison=<?php echo $link->sid; ?>&amp;liga=<?php echo $liga; ?><?php if ($itemid <>'') { echo "&Itemid=".$itemid; } ?><?php if ($typeid <>'') { echo "&typeid=".$typeid; } ?>" <?php if ($view == 'dwz_liga') { ?> class="active_link" <?php } ?>>
-		<span><?php echo JText::_('MOD_CLM_PARAM_DWZ_LABEL'); ?></span></a>
+		<span><?php if ($countryversion == "de") echo JText::_('MOD_CLM_PARAM_DWZ_LABEL'); else echo JText::_('MOD_CLM_PARAM_GRADES_LABEL'); ?></span></a>
 		</li>
 		<?php } ?>
 
@@ -142,7 +146,7 @@ if ($par_links AND $liga == $link->id AND $view == $view21 AND !isset($url) ) { 
 		?>
 		<li <?php if ($view == 'rangliste') { ?> class="active" <?php } ?>>
 		<a href="index.php?option=com_clm&amp;view=rangliste&amp;format=clm_pdf&amp;layout=heft&amp;saison=<?php echo $link->sid; ?>&amp;liga=<?php echo $liga; ?><?php if ($itemid <>'') { echo "&Itemid=".$itemid; } ?><?php if ($typeid <>'') { echo "&typeid=".$typeid; } ?>" <?php if ($view == 'rangliste') { ?> class="active_link" <?php } ?>>
-		<span><?php echo JText::_('RANGLISTE_PRINT_LIGAHEFT'); ?></span></a>
+		<span><?php echo JText::_('MOD_CLM_BOOKLET_LABEL'); ?></span></a>
 		</li>
 		<?php } ?>
 		
@@ -156,13 +160,13 @@ if ($par_links AND $liga == $link->id AND $view == $view21 AND !isset($url) ) { 
 		<?php if ( $link->liga_mt == 0 ) { ?>
 		<li class="first_link liga<?php echo $liga; ?>" <?php if ($view == 'aktuell_runde') { ?> id="current" class="active" <?php } ?>>
 		<a href="index.php?option=com_clm&amp;view=aktuell_runde&amp;saison=<?php echo $link->sid; ?>&amp;liga=<?php echo $liga; ?><?php if ($itemid <>'') { echo "&Itemid=".$itemid; } ?><?php if ($typeid <>'') { echo "&typeid=".$typeid; } ?>">
-		<span><?php echo JText::_('ROUND_CURRENT'); ?></span></a>
+		<span><?php echo JText::_('MOD_CLM_CURRENT_LABEL'); ?></span></a>
 		</li>
 		<?php } ?>
 		
 		<li <?php if ($view == 'paarungsliste') { ?> id="current" class="active" <?php } ?>>
 		<a href="index.php?option=com_clm&amp;view=paarungsliste&amp;saison=<?php echo $link->sid; ?>&amp;liga=<?php echo $liga; ?><?php if ($itemid <>'') { echo "&Itemid=".$itemid; } ?><?php if ($typeid <>'') { echo "&typeid=".$typeid; } ?>" <?php if ($view == 'paarungsliste') { ?> class="active_link" <?php } ?>>
-		<span><?php echo JText::_('TOURNAMENT_PAIRINGLIST'); ?></span></a>
+		<span><?php echo JText::_('MOD_CLM_PAIRINGLIST_LABEL'); ?></span></a>
 		</li>
 	<?php for ($y=0; $y < $link->runden; $y++) { ?>
 		<li <?php if ($view == 'runde' AND $dg == 1 AND ($runde == $y+1)) { ?> id="current" class="active" <?php } ?>>
@@ -213,7 +217,7 @@ if ($par_links AND $liga == $link->id AND $view == $view21 AND !isset($url) ) { 
 		?>
 		<li <?php if ($view == 'rangliste') { ?> class="active" <?php } ?>>
 		<a href="index.php?option=com_clm&amp;view=rangliste&amp;format=clm_pdf&amp;layout=heft&amp;saison=<?php echo $link->sid; ?>&amp;liga=<?php echo $liga; ?><?php if ($itemid <>'') { echo "&Itemid=".$itemid; } ?><?php if ($typeid <>'') { echo "&typeid=".$typeid; } ?>" <?php if ($view == 'rangliste') { ?> class="active_link" <?php } ?>>
-		<span><?php echo JText::_('RANGLISTE_PRINT_LIGAHEFT'); ?></span></a>
+		<span><?php echo JText::_('MOD_CLM_BOOKLET_LABEL'); ?></span></a>
 		</li>
 		<?php } ?>
 		

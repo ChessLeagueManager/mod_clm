@@ -11,6 +11,9 @@ $ -> Language fix or change
 - -> Removed
 ! -> Note
 
+- - - - - 3.2.6 - [29-11-2015] - - - - - - - - - - - - - - - - - - - -
++ Englisches Sprachfile
+
 - - - - - 3.2.5 - [22-04-2015] - - - - - - - - - - - - - - - - - - - -
 ^ Auswahl von Ligen oder Mannschaftsturnieren ohne IDs wieder möglich
 
