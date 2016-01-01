@@ -31,13 +31,12 @@ foreach ($link as $link1) {
 		}
 	}
 } } }
-//$config	= JComponentHelper::getParams( 'com_clm' );
-//$pdf_melde = $config->get('pdf_meldelisten',1);
+$config	= JComponentHelper::getParams( 'com_clm' );
+$pdf_melde = $config->get('pdf_meldelisten',1);
 	// Konfigurationsparameter auslesen
-	$config = clm_core::$db->config();
-	$countryversion = $config->countryversion;
-	$pdf_melde = $config->pdf_meldelisten;
-
+	//$config = clm_core::$db->config();
+	$countryversion = $config->get('countryversion',"de");
+	
 if (isset($link[0])) $saison = $link[0]->sid;
 else {
 	// current season
