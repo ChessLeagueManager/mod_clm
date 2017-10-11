@@ -144,7 +144,7 @@ if ($par_links AND $liga == $link->id AND $view == $view21 AND !isset($url) ) { 
 		if ($pdf_melde == 1) {
 		?>
 		<li <?php if ($view == 'rangliste') { ?> class="active" <?php } ?>>
-		<a href="index.php?option=com_clm&amp;view=rangliste&amp;format=clm_pdf&amp;layout=heft&amp;saison=<?php echo $link->sid; ?>&amp;liga=<?php echo $liga; ?><?php if ($itemid <>'') { echo "&Itemid=".$itemid; } ?><?php if ($typeid <>'') { echo "&typeid=".$typeid; } ?>" <?php if ($view == 'rangliste') { ?> class="active_link" <?php } ?>>
+		<a href="index.php?option=com_clm&amp;view=rangliste&amp;format=pdf&amp;layout=heft&amp;saison=<?php echo $link->sid; ?>&amp;liga=<?php echo $liga; ?><?php if ($itemid <>'') { echo "&Itemid=".$itemid; } ?><?php if ($typeid <>'') { echo "&typeid=".$typeid; } ?>" <?php if ($view == 'rangliste') { ?> class="active_link" <?php } ?>>
 		<span><?php echo JText::_('MOD_CLM_BOOKLET_LABEL'); ?></span></a>
 		</li>
 		<?php } ?>
@@ -215,7 +215,7 @@ if ($par_links AND $liga == $link->id AND $view == $view21 AND !isset($url) ) { 
 		if ($pdf_melde == 1) {
 		?>
 		<li <?php if ($view == 'rangliste') { ?> class="active" <?php } ?>>
-		<a href="index.php?option=com_clm&amp;view=rangliste&amp;format=clm_pdf&amp;layout=heft&amp;saison=<?php echo $link->sid; ?>&amp;liga=<?php echo $liga; ?><?php if ($itemid <>'') { echo "&Itemid=".$itemid; } ?><?php if ($typeid <>'') { echo "&typeid=".$typeid; } ?>" <?php if ($view == 'rangliste') { ?> class="active_link" <?php } ?>>
+		<a href="index.php?option=com_clm&amp;view=rangliste&amp;format=pdf&amp;layout=heft&amp;saison=<?php echo $link->sid; ?>&amp;liga=<?php echo $liga; ?><?php if ($itemid <>'') { echo "&Itemid=".$itemid; } ?><?php if ($typeid <>'') { echo "&typeid=".$typeid; } ?>" <?php if ($view == 'rangliste') { ?> class="active_link" <?php } ?>>
 		<span><?php echo JText::_('MOD_CLM_BOOKLET_LABEL'); ?></span></a>
 		</li>
 		<?php } ?>
