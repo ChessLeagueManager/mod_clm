@@ -37,7 +37,7 @@ class modCLMHelper {
 		}
 		
 	
-		$query = "SELECT  a.sid, a.id, a.name, a.runden, a.durchgang, a.rang, a.runden_modus, a.liga_mt "
+		$query = "SELECT  a.sid, a.id, a.name, a.runden, a.durchgang, a.rang, a.runden_modus, a.liga_mt, a.params "
 			."\n FROM #__clm_liga as a"
 			."\n LEFT JOIN #__clm_saison as s ON s.id = a.sid "
 			."\n WHERE a.published = 1"

@@ -67,12 +67,16 @@ $url		= JRequest::getVar('url');
 <?php 
 // $link=$this->link;
 foreach ($link as $link) {
+	$params = new clm_class_params($link->params);
 // Haupttlinks des Menüs
 ?>
 	<li <?php if ($liga == $link->id AND $typeid == 21) { ?> id="current" class="first_link" <?php } ?>>
 	<?php $typeid = 21; 
 		$view21 = 'rangliste';
-		if ($link->runden_modus == 1 OR $link->runden_modus == 2 OR $link->runden_modus == 3) $view21 = 'rangliste';
+		if ($params->get("firstView","0") == "0") { $viewA = "rangliste"; }
+		elseif ($params->get("firstView","0") == "1") { $viewA = "tabelle"; }
+		else { $viewA = "paarungsliste"; }
+		if ($link->runden_modus == 1 OR $link->runden_modus == 2 OR $link->runden_modus == 3) $view21 = $viewA;
 	    if ($link->runden_modus == 4 OR $link->runden_modus == 5) $view21 = 'paarungsliste'; ?>
 	<a href="index.php?option=com_clm&amp;view=<?php echo $view21;?>&amp;saison=<?php echo $link->sid;?>&amp;liga=<?php echo $link->id;?><?php if ($itemid <>'') { echo "&Itemid=".$itemid; } ?><?php echo "&typeid=".$typeid; ?>"
 	<?php if ($liga == $link->id AND $view == $view21 ) {echo ' class="active_link"';} ?>>
