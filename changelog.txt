@@ -11,8 +11,8 @@ $ -> Language fix or change
 - -> Removed
 ! -> Note
 
-- - - - - 3.3.0 - [03-03-2018] - - - - - - - - - - - - - - - - - - - -
-^ Standard-Anzeige Rangliste/Tabelle entspr. Ligaparameter
+- - - - - 3.3.0 - [12-03-2018] - - - - - - - - - - - - - - - - - - - -
+^ Standard-Anzeige Rangliste/Tabelle/Teilnehmerliste entspr. Ligaparameter
 
 - - - - - 3.2.7 - [07-10-2017] - - - - - - - - - - - - - - - - - - - -
 # format-Angabe der pdf-Ausgabe umgestellt (clm_pdf -> pdf)

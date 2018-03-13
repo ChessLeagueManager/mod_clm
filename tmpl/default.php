@@ -84,7 +84,8 @@ foreach ($link as $link) {
 		$view21 = 'rangliste';
 		if ($lparams['firstView'] == 0) { $viewA = "rangliste"; }
 		elseif ($lparams['firstView'] == 1) { $viewA = "tabelle"; }
-		else { $viewA = "paarungsliste"; }
+		elseif ($lparams['firstView'] == 2) { $viewA = "paarungsliste"; }
+		else { $viewA = "teilnehmer"; }
 		if ($link->runden_modus == 1 OR $link->runden_modus == 2 OR $link->runden_modus == 3) $view21 = $viewA;
 	    if ($link->runden_modus == 4 OR $link->runden_modus == 5) $view21 = 'paarungsliste'; ?>
 	<a href="index.php?option=com_clm&amp;view=<?php echo $view21;?>&amp;saison=<?php echo $link->sid;?>&amp;liga=<?php echo $link->id;?><?php if ($itemid <>'') { echo "&Itemid=".$itemid; } ?><?php echo "&typeid=".$typeid; ?>"
