@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="1.7.0" client="site" method="upgrade">
 	<name>CLM Modul</name>
-	<creationDate>12.03.2018</creationDate>
+	<creationDate>26.11.2018</creationDate>
 	<author>CLM Project</author>
 	<copyright>(C) Copyright 2008-2018 by CLM Project</copyright>
 	<license>GNU/GPL</license>
 	<authorEmail>fishpoke@fishpoke.de</authorEmail>
 	<authorUrl>www.chessleaguemanager.de</authorUrl>
-	<version>3.3.0</version>
+	<version>3.4.0</version>
 	<description>MOD_CLM_XML_DESCRIPTION</description>
 
 	<files>
@@ -62,7 +62,7 @@
 					<option value="1">JYES</option>
 				</field>
 			</fieldset>
-<fieldset name="advanced">
+			<fieldset name="advanced">
                 <field
                     name="layout"
                     type="modulelayout"
@@ -101,9 +101,9 @@
                     <option
                         value="itemid"></option>
                 </field>
-		<field name="itemid" type="text" default="" label="ITEMID" description="ITEMID_DESC"/>
+				<field name="itemid" type="text" default="" label="ITEMID" description="ITEMID_DESC"/>
 
-   </fieldset>	
+			</fieldset>	
 		</fields>
 	</config>
 </extension>

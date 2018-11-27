@@ -1,4 +1,13 @@
-<?php // no direct access
+<?php 
+/**
+  * @ CLM Extern Component
+ * @Copyright (C) 2008-2018 CLM Team.  All rights reserved
+ * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
+ * @link http://www.chessleaguemanager.de
+ * @author Thomas Schwietert
+ * @email fishpoke@fishpoke.de
+*/
+
 defined('_JEXEC') or die('Restricted access'); 
 
 $liga	= JRequest::getVar( 'liga');
@@ -45,8 +54,9 @@ else {
 	$saison = $db->loadObject()->id;
 }
 //URL-Test: falls nicht belegt --> mod_clm oder mod_clm_archiv
-//			falls belegt --> mod_clm_ext
-$url		= JRequest::getVar('url');
+//			falls belegt --> mod_clm_ext (parameter url version < 3.4; parameter source ab 3.4 
+$url	= JRequest::getVar('url');
+if (!isset($url)) $url	= JRequest::getVar('source');
 ?>
 <ul class="menu">
 
