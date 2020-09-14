@@ -1,4 +1,10 @@
 <?php
+/**
+ * @ Chess League Manager (CLM) Component 
+ * @Copyright (C) 2008-2020 CLM Team.  All rights reserved
+ * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
+ * @link http://www.chessleaguemanager.de
+*/
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
@@ -69,7 +75,18 @@ class modCLMHelper {
 	}
 
 	public static function getRunde(&$params) {
-		$liga	= JRequest::getVar( 'liga', 1);
+
+// Copy der clm-core-Funktion clm_funktion_request_string
+if (!function_exists('clm_request_string')) {
+	function clm_request_string($input, $standard = '') {
+		if (isset($_GET[$input])) $value = $_GET[$input];
+		elseif (isset($_POST[$input])) $value = $_POST[$input];
+		else return $standard;
+		if (is_string($value)) $result = $value; else $result = $standard;
+		return $result;
+	}
+}
+		$liga	= clm_request_string( 'liga', 1);
 		$db	= JFactory::getDBO();
 	
 		$query = " SELECT  a.* "

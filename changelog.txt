@@ -11,6 +11,10 @@ $ -> Language fix or change
 - -> Removed
 ! -> Note
 
+- - - - - 3.4.1 - [14-09-2020] - - - - - - - - - - - - - - - - - - - -
++ neuer Link: Infokarte
+^ Code-Anpassung Joomla 4
+
 - - - - - 3.4.0 - [26-11-2018] - - - - - - - - - - - - - - - - - - - -
 ^ GET-Parameter url ersetzt durch GET-Parameter source bei Extern Lösung
 
