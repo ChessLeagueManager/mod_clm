@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="2.5.0" client="site" method="upgrade">
 	<name>CLM Modul</name>
-	<creationDate>14.09.2020</creationDate>
+	<creationDate>02.12.2020</creationDate>
 	<author>CLM Project</author>
 	<copyright>(C) Copyright 2008-2020 by CLM Project</copyright>
 	<license>GNU/GPL</license>
 	<authorEmail>fishpoke@fishpoke.de</authorEmail>
 	<authorUrl>www.chessleaguemanager.de</authorUrl>
-	<version>3.4.1</version>
+	<version>3.5.0</version>
 	<description>MOD_CLM_XML_DESCRIPTION</description>
 
 	<files>
@@ -23,6 +23,9 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic" label="JACTION_ADMIN">
+				<field name="saisonid" type="sql" default="0" label="MOD_CLM_PARAM_SAISON_LABEL" description="MOD_CLM_PARAM_SAISON_DESC" query="SELECT id AS value, name AS saisonid FROM #__clm_saison WHERE published = 1 ORDER BY ordering DESC, id DESC">
+					<option value="0">MOD_CLM_PARAM_SAISON_AKT</option>
+				</field>
 				<field name="mt_type" type="list" default="0" label="MOD_CLM_PARAM_TYPE_LABEL" description="MOD_CLM_PARAM_TYPE_DESC">
 					<option value="0">MOD_CLM_PARAM_TYPE_0</option>
 					<option value="1">MOD_CLM_PARAM_TYPE_1</option>

@@ -11,6 +11,7 @@ if(!defined("DS")){define('DS', DIRECTORY_SEPARATOR);} // fix for Joomla 3.2
 // angemeldet
 require_once (dirname(__FILE__).DIRECTORY_SEPARATOR.'helper.php');
 
+$par_saison = $params->def('saisonid', 0);
 $par_dwzliga = $params->def('dwzliga', 1);
 $par_statistik = $params->def('statistik', 1);
 $par_ligainfo = $params->def('ligainfo', 0);

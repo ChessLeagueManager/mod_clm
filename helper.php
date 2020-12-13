@@ -12,6 +12,7 @@ class modCLMHelper {
 	
 	public static function getLink(&$params) {
 		$db	= JFactory::getDBO();
+		$par_saison = $params->def('saisonid', 0);
 		$par_mt_type = $params->def('mt_type', 0);
 		// einzelne IDs gegeben?
 		$par_ids = $params->def('ids', '');
@@ -34,7 +35,7 @@ class modCLMHelper {
 				}
 				$sqlIDs .= ")";
 			}
-			// falls doch ekien IDs eingetragen wurden
+			// falls doch keine IDs eingetragen wurden
 			if ($counter == 0) {
 				$sqlIDs = "";
 			}
@@ -48,9 +49,12 @@ class modCLMHelper {
 			."\n LEFT JOIN #__clm_saison as s ON s.id = a.sid "
 			."\n WHERE a.published = 1"
 			.($par_mt_type < 2 ? "\n AND a.liga_mt = ".$par_mt_type : "")
-			."\n AND s.published = 1"
-			."\n AND s.archiv  != 1".$sqlIDs
-			."\n ORDER BY a.sid DESC,a.ordering ASC, a.id ASC "
+			."\n AND s.published = 1";
+		if ($par_saison == 0)	
+			$query .= "\n AND s.archiv  != 1".$sqlIDs;
+		else
+			$query .= "\n AND s.id  = ".$par_saison.$sqlIDs;
+		$query .= "\n ORDER BY a.sid DESC,a.ordering ASC, a.id ASC "
 			;
 		$db->setQuery( $query );
 		$link = $db->loadObjectList();;
@@ -59,6 +63,7 @@ class modCLMHelper {
 	}
 
 	public static function getCount(&$params) {
+		$par_saison = $params->def('saisonid', 0);
 		$par_mt_type = $params->def('mt_type', 0);
 		$db	= JFactory::getDBO();
 		$query = "SELECT COUNT(a.id) as id "
@@ -66,7 +71,11 @@ class modCLMHelper {
 			."\n LEFT JOIN #__clm_saison as s ON s.id = a.sid "
 			."\n WHERE a.published = 1"
 			.($par_mt_type < 2 ? "\n AND a.liga_mt = ".$par_mt_type : "")
-			."\n AND s.archiv  != 1"
+			."\n AND s.published = 1";
+		if ($par_saison == 0)	
+			$query .= "\n AND s.archiv  != 1";
+		else
+			$query .= "\n AND s.id  = ".$par_saison;
 			;
 		$db->setQuery( $query );
 		$count = $db->loadObjectList();;
@@ -86,6 +95,7 @@ if (!function_exists('clm_request_string')) {
 		return $result;
 	}
 }
+		$par_saison = $params->def('saisonid', 0);
 		$liga	= clm_request_string( 'liga', 1);
 		$db	= JFactory::getDBO();
 	
@@ -93,9 +103,12 @@ if (!function_exists('clm_request_string')) {
 			." FROM #__clm_runden_termine as a"
 			." LEFT JOIN #__clm_saison as s ON s.id = a.sid "
 			." WHERE a.liga =".$liga
-			." AND s.published = 1"
-			." AND s.archiv  != 1"
-			." ORDER BY a.nr ASC"
+			." AND s.published = 1";
+		if ($par_saison == 0)	
+			$query .= " AND s.archiv  != 1";
+		else
+			$query .= " AND s.id  = ".$par_saison;
+		$query .= " ORDER BY a.nr ASC"
 			;
 		$db->setQuery( $query );
 		$runden = $db->loadObjectList();;
