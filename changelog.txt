@@ -11,6 +11,9 @@ $ -> Language fix or change
 - -> Removed
 ! -> Note
 
+- - - - - 4.0.0 - [30-09-2022] - - - - - - - - - - - - - - - - - - - -
+# Code-Anpassung Joomla 4: SEF-Funktionalität
+
 - - - - - 3.5.0 - [02-12-2020] - - - - - - - - - - - - - - - - - - - -
 + neuer Parameter: Saison
 

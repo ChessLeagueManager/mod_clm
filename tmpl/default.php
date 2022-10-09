@@ -1,7 +1,7 @@
 <?php 
 /**
  * @ Chess League Manager (CLM) Modul
- * @Copyright (C) 2008-2020 CLM Team.  All rights reserved
+ * @Copyright (C) 2008-2022 CLM Team.  All rights reserved
  * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
  * @link http://www.chessleaguemanager.de
  * @author Thomas Schwietert
@@ -10,7 +10,7 @@
 
 defined('_JEXEC') or die('Restricted access'); 
 
-// Copy der clm-core-Funktion clm_funktion_request_string
+// Copy der clm-core-Funktion clm_function_request_string
 if (!function_exists('clm_request_string')) {
 	function clm_request_string($input, $standard = '') {
 		if (isset($_GET[$input])) $value = $_GET[$input];
@@ -18,6 +18,22 @@ if (!function_exists('clm_request_string')) {
 		else return $standard;
 		if (is_string($value)) $result = $value; else $result = $standard;
 		return $result;
+	}
+}
+// Copy der clm-core-Funktion clm_function_request_int
+if (!function_exists('clm_request_int')) {
+	function clm_request_int($input, $standard = 0) {
+		if (isset($_GET[$input])) $value = $_GET[$input];
+		elseif (isset($_POST[$input])) $value = $_POST[$input];
+		elseif (!class_exists('JFactory')) return $standard; // kein Joomla
+		else {
+			$app =JFactory::getApplication(); // nur nötig wegen Menüeintragstypen
+			$xy = $app->input->getInt($input);
+			if (!is_null($xy)) $value = $xy;
+			else return $standard; 
+		}
+	$result = clm_core::$load->make_valid($value, 0, $standard);	
+	return $result;	
 	}
 }
 
@@ -28,7 +44,7 @@ $dg		= clm_request_string( 'dg' );
 
 // itemid
 if($par_itemid == '' || !is_numeric($par_itemid)) {
-	$itemid	= clm_request_string( 'Itemid' );
+	$itemid	= clm_request_int( 'Itemid', 1 );
 } else {
 	$itemid = $par_itemid;
 }
