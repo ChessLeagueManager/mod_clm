@@ -32,8 +32,13 @@ if (!function_exists('clm_request_int')) {
 			if (!is_null($xy)) $value = $xy;
 			else return $standard; 
 		}
-	$result = clm_core::$load->make_valid($value, 0, $standard);	
-	return $result;	
+		//	$result = clm_core::$load->make_valid($value, 0, $standard);	
+		if (!is_numeric($value) OR (intval($value) != floatval($value))) {
+			$result = $standard;
+		} else {
+			$result = intval($value);
+		}
+		return $result;	
 	}
 }
 
