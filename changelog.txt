@@ -11,6 +11,9 @@ $ -> Language fix or change
 - -> Removed
 ! -> Note
 
+- - - - - 4.1.0 - [29-11-2023] - - - - - - - - - - - - - - - - - - - -
+^ Code-Anpassung Joomla 4.4.1: Aufbau der Sprachdateien
+
 - - - - - 4.0.1 - [09-10-2022] - - - - - - - - - - - - - - - - - - - -
 # Code-Anpassung Joomla 4: SEF-Funktionalität (Nachbesserung)
 

@@ -1,13 +1,12 @@
 <?php 
 /**
  * @ Chess League Manager (CLM) Modul
- * @Copyright (C) 2008-2022 CLM Team.  All rights reserved
+ * @Copyright (C) 2008-2023 CLM Team.  All rights reserved
  * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
  * @link http://www.chessleaguemanager.de
  * @author Thomas Schwietert
  * @email fishpoke@fishpoke.de
 */
-
 defined('_JEXEC') or die('Restricted access'); 
 
 // Copy der clm-core-Funktion clm_function_request_string
@@ -100,7 +99,7 @@ if (!isset($url) OR $url == '') $url	= clm_request_string('source');
             
     <?php if ( $par_termine == 1 ) { ?>
     <li <?php if ($view == 'termine') { ?> id="current" class="active" <?php } ?>>
-        <a href="index.php?option=com_clm&amp;view=termine&amp;saison=<?php echo $saison; ?><?php if ($itemid <>'') { echo "&Itemid=".$itemid; } ?>" <?php if ($view == 'termine') { ?> class="active_link" <?php } ?>>
+        <a href="index.php?option=com_clm&amp;view=termine&amp;categoryid=0&amp;saison=<?php echo $saison; ?><?php if ($itemid <>'') { echo "&Itemid=".$itemid; } ?>" <?php if ($view == 'termine') { ?> class="active_link" <?php } ?>>
         <span><?php echo JText::_('MOD_CLM_DATES_LABEL'); ?></span></a>
     </li>
     <?php } ?>
