@@ -11,6 +11,9 @@ $ -> Language fix or change
 - -> Removed
 ! -> Note
 
+- - - - - 4.2.0 - [31-07-2024] - - - - - - - - - - - - - - - - - - - -
++ neue Parameter Kategorie und Region
+
 - - - - - 4.1.0 - [29-11-2023] - - - - - - - - - - - - - - - - - - - -
 ^ Code-Anpassung Joomla 4.4.1: Aufbau der Sprachdateien
 

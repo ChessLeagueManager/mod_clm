@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="2.5.0" client="site" method="upgrade">
 	<name>CLM Modul</name>
-	<creationDate>29.11.2023</creationDate>
+	<creationDate>01.08.2024</creationDate>
 	<author>CLM Project</author>
-	<copyright>(C) Copyright 2008-2023 by CLM Project</copyright>
+	<copyright>(C) Copyright 2008-2024 by CLM Project</copyright>
 	<license>GNU/GPL</license>
 	<authorEmail>fishpoke@fishpoke.de</authorEmail>
 	<authorUrl>www.chessleaguemanager.de</authorUrl>
-	<version>4.1.0</version>
+	<version>4.2.0</version>
 	<description>MOD_CLM_XML_DESCRIPTION</description>
 
 	<files>
@@ -32,6 +32,13 @@
 					<option value="2">MOD_CLM_PARAM_TYPE_2</option>
 				</field>
 				
+				<field name="catid" type="sql" default="0" label="MOD_CLM_PARAM_CAT_LABEL" description="MOD_CLM_PARAM_CAT_DESC" query="SELECT id AS value, name AS catid FROM #__clm_categories ORDER BY ordering">
+					<option value="0">- ggf. Kategorie auswählen -</option>
+				</field>
+<!--				<field name="verbd" type="sql" default="0" label="MOD_CLM_PARAM_VER_LABEL" description="MOD_CLM_PARAM_VER_DESC" query="SELECT Verband AS value, Verbandname AS verbd FROM #__clm_dwz_verbaende WHERE SUBSTRING(Verband, 1, 2) = '66' ORDER BY verband"> -->
+				<field name="verbd" type="sql" default="0" label="MOD_CLM_PARAM_VER_LABEL" description="MOD_CLM_PARAM_VER_DESC" query="SELECT v.Verband AS value, v.Verbandname AS verbd FROM #__clm_config as c LEFT JOIN #__clm_dwz_verbaende as v ON ( TRIM('0' FROM c.value) = SUBSTRING(v.Verband, 1, CHAR_LENGTH( TRIM('0' FROM c.value) )) AND c.id = 1 ) WHERE v.Verbandname > '' ORDER BY v.Verband">
+					<option value="0">- ggf. Region auswählen -</option>
+				</field>
 				<field name="ids" type="text" default="" label="MOD_CLM_PARAM_IDS_LABEL" description="MOD_CLM_PARAM_IDS_DESC">
 				</field>
 				
