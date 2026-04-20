@@ -11,6 +11,9 @@ $ -> Language fix or change
 - -> Removed
 ! -> Note
 
+- - - - - 5.0.0 - [11-04-2026] - - - - - - - - - - - - - - - - - - - -
+^ Anpassung Joomla 6
+
 - - - - - 4.2.0 - [31-07-2024] - - - - - - - - - - - - - - - - - - - -
 + neue Parameter Kategorie und Region
 

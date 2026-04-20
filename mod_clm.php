@@ -1,12 +1,15 @@
 <?php
 /**
  * @ Chess League Manager (CLM) Modul
- * @Copyright (C) 2008-2020 CLM Team.  All rights reserved
+ * @Copyright (C) 2008-2026 CLM Team.  All rights reserved
  * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
- * @link http://www.chessleaguemanager.de
+ * @link https://chessleaguemanager.org
 */
 // no direct access
 defined('_JEXEC') or die('Restricted access');
+
+use Joomla\CMS\Helper\ModuleHelper;
+
 if(!defined("DS")){define('DS', DIRECTORY_SEPARATOR);} // fix for Joomla 3.2
 // angemeldet
 require_once (dirname(__FILE__).DIRECTORY_SEPARATOR.'helper.php');
@@ -26,6 +29,6 @@ $link	= modCLMHelper::getLink($params);
 $count	= modCLMHelper::getCount($params);
 $runden	= modCLMHelper::getRunde($params);
 
-require(JModuleHelper::getLayoutPath('mod_clm'));
+require(ModuleHelper::getLayoutPath('mod_clm'));
 
 

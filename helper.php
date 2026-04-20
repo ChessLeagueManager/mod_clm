@@ -1,17 +1,19 @@
 <?php
 /**
  * @ Chess League Manager (CLM) Component 
- * @Copyright (C) 2008-2024 CLM Team.  All rights reserved
+ * @Copyright (C) 2008-2026 CLM Team.  All rights reserved
  * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
- * @link http://www.chessleaguemanager.de
+ * @link https://chessleaguemanager.org
 */
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
+use Joomla\CMS\Factory;
+
 class modCLMHelper {
 	
 	public static function getLink(&$params) {
-		$db	= JFactory::getDBO();
+		$db	= Factory::getDBO();
 		$par_saison = $params->def('saisonid', 0);
 		$par_mt_type = $params->def('mt_type', 0);
 		// einzelne IDs gegeben?
@@ -123,7 +125,7 @@ class modCLMHelper {
 	public static function getCount(&$params) {
 		$par_saison = $params->def('saisonid', 0);
 		$par_mt_type = $params->def('mt_type', 0);
-		$db	= JFactory::getDBO();
+		$db	= Factory::getDBO();
 		$query = "SELECT COUNT(a.id) as id "
 			."\n FROM #__clm_liga as a"
 			."\n LEFT JOIN #__clm_saison as s ON s.id = a.sid "
@@ -155,7 +157,7 @@ if (!function_exists('clm_request_string')) {
 }
 		$par_saison = $params->def('saisonid', 0);
 		$liga	= clm_request_string( 'liga', 1);
-		$db	= JFactory::getDBO();
+		$db	= Factory::getDBO();
 	
 		$query = " SELECT  a.* "
 			." FROM #__clm_runden_termine as a"
